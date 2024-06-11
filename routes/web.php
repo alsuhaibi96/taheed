@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\OtpController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -33,3 +34,5 @@ Route::get('/otp/verify/{email}', [OtpController::class, 'showVerifyForm'])->nam
 
 Route::post('/otp/verify', [OtpController::class, 'verify'])->name('otp.verify');
 Route::post('/otp/resend', [OtpController::class, 'resend']);
+
+Route::post('/load-component', [ComponentController::class, 'loadComponent']);
