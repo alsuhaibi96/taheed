@@ -35,7 +35,12 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
             case 'mobile-bikes-link':
                 component = 'bikes';
                 break;
-            case 'settings-link':
+            case 'main-link':
+            case 'mobile-main-link':
+                component = 'main';
+                break;
+
+            case 'customer-settings':
             case 'mobile-settings-link':
                 component = 'settings';
                 break;

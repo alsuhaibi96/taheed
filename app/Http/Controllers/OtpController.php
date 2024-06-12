@@ -22,7 +22,7 @@ class OtpController extends Controller
             abort(403, __($otp['status']));
         }
     
-        return $otp['result'];
+        return view('customer.dashboard');
     }
 
     public function resend(Request $request){

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('full_name')->nullable();
             $table->string('national_id')->nullable();
             $table->string('number_of_motorcycles')->default(0);
+            $table->string('role')->default('customer');
             $table->string('receipt')->nullable();
             $table->string('otp_validation')->default(false);
         });

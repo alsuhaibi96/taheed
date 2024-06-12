@@ -3,28 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Dashboard Card</title>
+    @vite('resources/css/app.css')
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
 </head>
-<body class="bg-gray-100 font-sans leading-normal tracking-normal">
-    <div class="flex">
+<body >
+
+      <div class="flex">
         <!-- Sidebar -->
-        <div id="sidebar" class="bg-black w-64 min-h-screen hidden md:block">
+        <div id="sidebar" class="bg-purple w-64 min-h-screen hidden md:block">
             <div class="p-2 flex-col items-center py-4">
-                <div class="flex justify-between">
-                    <img src="{{ Vite::asset('resources/images/burger-menu.png') }}" alt="Menu">
-                    <img src="{{ Vite::asset('resources/images/dashboard-logo.png') }}" alt="Menu">
-                </div>
+              
                 <nav class="mt-10">
-                    <a href="#" id="home-link" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 font-bold text-black bg-white rounded-sm">الرئيسية</a>
-                    <a href="#" id="clients-link" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white bg-black">العملاء</a>
-                    <a href="#" id="bikes-link" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white bg-black">الدراجات النارية</a>
-                    <a href="#" id="settings-link" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white bg-black">إعدادات</a>
+                    <a href="#" id="main-link" class="block py-2.5 px-4 rounded transition duration-200 font-bold text-black bg-white rounded-sm">الرئيسية</a>
+                    <a href="#" id="customer-settings" class="block py-2.5 px-4 rounded transition duration-200 text-white "> إعدادات الحساب</a>
 
                     <form action="{{route('logout')}}" method="POST">
                         @csrf
-                        <button type="submit" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white" >
+                        <button type="submit" class="block py-2.5 px-4 rounded transition duration-200  text-white" >
                             تسجيل الخروج
                         </button>
                     </form>
@@ -57,12 +54,16 @@
             </div>
         </div>
 
-        <!-- Content -->
+    
         <div id="content" class="w-full md:pl-64 p-8">
-            @include('components.home')
+            @include('components.main')
         </div>
     </div>
+   
+    
 
-    <script src="{{ asset('js/sidebar.js') }}"></script>
+
+<script src="{{ asset('js/sidebar.js') }}"></script>
+
 </body>
 </html>
