@@ -68,8 +68,6 @@ class UserController extends Controller
         $totalSales=Payment::sum('payment_amount');
         $rentals=Rental::count();
 
-
-
         return view('admin/dashboard', compact('customerCount', 'totalSales', 'rentals'));
     }
 }

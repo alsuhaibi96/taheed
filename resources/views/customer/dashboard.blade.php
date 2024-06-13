@@ -16,7 +16,7 @@
             <div class="p-2 flex-col items-center py-4">
               
                 <nav class="mt-10">
-                    <a href="#" id="main-link" class="block py-2.5 px-4 rounded transition duration-200 font-bold text-black bg-white rounded-sm">الرئيسية</a>
+                    <a href="#" id="main-link" class="block py-2.5 px-4 transition duration-200 font-bold text-black bg-white rounded-sm">الرئيسية</a>
                     <a href="#" id="customer-settings" class="block py-2.5 px-4 rounded transition duration-200 text-white "> إعدادات الحساب</a>
 
                     <form action="{{route('logout')}}" method="POST">
@@ -56,7 +56,7 @@
 
     
         <div id="content" class="w-full md:pl-64 p-8">
-            @include('components.main')
+            @include('components.main',['data'=>$data??''])
         </div>
     </div>
    

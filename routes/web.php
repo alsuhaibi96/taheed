@@ -23,6 +23,8 @@ Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->middleware
 
 Route::get('/customer/dashboard', [CustomerController::class, 'dashboard'])->name('customer.dashboard');
 Route::post('customer/login', [CustomerController::class, 'login'])->name('customer.login');
+Route::delete('customer/delete/{customer}', [CustomerController::class, 'destroy'])->name('customer.delete');
+
 
 Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/user', [UserController::class, 'index'])->name('admin.dashboard');

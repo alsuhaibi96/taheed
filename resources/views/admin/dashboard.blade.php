@@ -20,7 +20,7 @@
                     <a href="#" id="home-link" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 font-bold text-black bg-white rounded-sm">الرئيسية</a>
                     <a href="#" id="clients-link" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white bg-black">العملاء</a>
                     <a href="#" id="bikes-link" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white bg-black">الدراجات النارية</a>
-                    <a href="#" id="settings-link" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white bg-black">إعدادات</a>
+                    <a href="#" id="admin-settings-link" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white bg-black">إعدادات</a>
 
                     <form action="{{route('logout')}}" method="POST">
                         @csrf
@@ -33,8 +33,8 @@
         </div>
 
         <!-- Mobile Header -->
-        <div class="w-full md:hidden bg-black text-white p-4 flex justify-between items-center">
-            <div class="w-16 h-16 bg-white rounded-full"></div>
+        <div>
+            <div class="w-full md:hidden bg-black text-white p-4 flex justify-between items-center">
             <button id="menu-toggle" class="focus:outline-none">
                 <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                     <title>menu</title>
@@ -42,23 +42,31 @@
                 </svg>
             </button>
         </div>
+        </div>
 
         <!-- Mobile Sidebar -->
-        <div id="mobile-sidebar" class="bg-black w-64 min-h-screen fixed top-0 left-0 transform -translate-x-full transition-transform duration-200 ease-in-out">
+        <div id="mobile-sidebar" class="bg-black w-64 min-h-screen fixed top-0 left-0 transform -translate-x-full transition-transform duration-200 ease-in-out z-50">
             <div class="flex flex-col items-center py-4">
                 <div class="w-16 h-16 bg-white rounded-full mb-4"></div>
                 <nav class="mt-10">
-                    <a href="#" id="mobile-home-link" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white font-bold">الرئيسية</a>
-                    <a href="#" id="mobile-clients-link" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white">العملاء</a>
-                    <a href="#" id="mobile-bikes-link" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white">الدراجات النارية</a>
-                    <a href="#" id="mobile-settings-link" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white">إعدادات</a>
+                    <a href="#" id="home-link" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 font-bold text-black bg-white rounded-sm">الرئيسية</a>
+                    <a href="#" id="clients-link" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white bg-black">العملاء</a>
+                    <a href="#" id="bikes-link" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white bg-black">الدراجات النارية</a>
+                    <a href="#" id="admin-settings-link" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white bg-black">إعدادات</a>
+
+                    <form action="{{route('logout')}}" method="POST">
+                        @csrf
+                        <button type="submit" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white" >
+                            تسجيل الخروج
+                        </button>
+                    </form>
 
                 </nav>
             </div>
         </div>
 
         <!-- Content -->
-        <div id="content" class="w-full md:pl-64 p-8">
+        <div id="content" class="w-full md:pl-64 md:p-8 p-1">
             @include('components.home')
         </div>
     </div>

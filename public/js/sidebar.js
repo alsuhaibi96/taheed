@@ -44,6 +44,12 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
             case 'mobile-settings-link':
                 component = 'settings';
                 break;
+
+
+
+            case 'admin-settings-link':
+                component = 'admin-settings';
+                break;
         }
 
         fetch(`/load-component`, {

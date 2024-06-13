@@ -7,15 +7,15 @@
             <div class="bg-purple text-white p-6 rounded-lg shadow-lg flex flex-col justify-between w-96">
                 <div class="flex justify-between space-x-1">
                     <div class="text-lg">عدد الدراجات النارية</div>
-                    <div class="text-3xl">30</div>
+                    <div class="text-3xl">{{$data['rentals'] ?? '-'}}</div>
                 </div>
                 <div class="flex justify-between">
                     <div class="text-lg">عدد العقود</div>
-                    <div class="text-3xl">02</div>
+                    <div class="text-3xl">{{$data['contracts']  ?? '-'}}</div>
                 </div>
                 <div class="flex justify-between">
                     <div class="text-lg">الإيجارات  المدفوعة</div>
-                    <div class="text-3xl">75.240</div>
+                    <div class="text-3xl">{{$data['totalSales']  ?? '-'}}</div>
                 </div>
                 <div class="w-full bg-white h-2 mt-4 rounded-full">
                     <div class="bg-purple-800 h-2 rounded-full" style="width: 60%;"></div>

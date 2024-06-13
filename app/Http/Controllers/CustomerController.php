@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contract;
+use App\Models\Payment;
+use App\Models\Rental;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,8 +30,34 @@ class CustomerController extends Controller
        ]);
    }
 
+   public function destroy($id)
+   {
+    $customer=User::findOrFail($id);
+    $customer->delete();
+
+    return redirect()->back()->with('success','Customer deleted successfully');
+
+   }
    public function dashboard()
    {
-       return view('customer.dashboard'); 
+    $data=$this->fetchCustomerData();
+
+       return view('customer.dashboard',compact('data')); 
+   }
+
+   private function fetchCustomerData()
+   {
+       $contracts=Contract::where('user_id',Auth::id())->count();
+       $rentals=Rental::where('user_id',Auth::id())->count();
+       $user=User::find(Auth::id());
+       $totalSales = Payment::sum('payment_amount');
+
+
+       return [
+           'contracts'=>$contracts,
+           'rentals'=>$rentals,
+           'user'=>$user,
+           'totalSales'=>$totalSales
+       ];
    }
 }
